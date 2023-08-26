@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="container">
+      <h1>Inicio de sesión</h1>
+      <form action="" id="userForm">
+        <div class="container-input">
+          <input type="text" required name="email" autocomplete="off" />
+          <label class="label-text">
+            <span class="text-nomb">Email</span>
+          </label>
+        </div>
+        <div class="container-input">
+          <input type="password" required name="password" autocomplete="off" />
+          <label class="label-text">
+            <span class="text-nomb">Password</span>
+          </label>
+        </div>
+        <!-- <fieldset>
+            <legend>Tipo de usuario</legend>
+            <label>
+                <input type="radio" name="usuario" value="usuario"> Usuario
+            </label>
+            <label>
+                <input type="radio" name="usuario" value="empresa"> Empresa
+            </label>
+        </fieldset>    -->
+        <div class="buttons">
+          <button type="submit" id="ingresar">Ingresar</button>
+          <button id="registerUser">Registro Usuarios</button>
+          <button id="registerCompany">Registro empresas</button>
+        </div>
+      </form>
+    </section>
+    <script src="login.js"></script>
+  </body>
+</html>

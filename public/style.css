@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --fondoContent: #e6c3ed;
+  --input: #ab6ab4;
+  --button: #b88ee1;
+  --textInicial: #fff;
+}
+
+body {
+  background-color: var(--input);
+}
+
+.container {
+  max-width: 100%;
+  height: 50vh;
+  background-color: var(--fondoContent);
+  padding: 1rem;
+
+  & h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--textInicial);
+    font-weight: var(--button);
+  }
+
+  /* ---------------Formulario ------------------------ */
+
+  & form {
+    margin: 0 auto;
+    max-width: 30%;
+    padding: 20px;
+    background-color: var(--textInicial);
+    border-radius: 5px;
+
+    & .container-input {
+      width: 100%;
+      height: 50px;
+      max-width: 400px;
+      position: relative;
+      overflow: hidden;
+
+      & input {
+        width: 100%;
+        height: 100%;
+        background: none;
+        color: var(--input);
+        padding-top: 20px;
+        border: none;
+        outline: 0px;
+      }
+
+      & .label-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        border-bottom: 1px solid var(--fondoContent);
+        font-size: 14px;
+
+        &:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -1px;
+          width: 100%;
+          height: 100%;
+          border-bottom: 3px solid var(--fondoContent);
+          transform: translateX(-100%);
+          transition: all 0.3s ease;
+        }
+
+        & .text-nomb {
+          position: absolute;
+          bottom: 5px;
+          left: 0;
+          transition: all 0.3s ease;
+          color: var(--input);
+        }
+      }
+
+      & input:focus + .label-text .text-nomb,
+      & input:valid + .label-text .text-nomb {
+        transform: translateY(-150%);
+        font-size: 10px;
+      }
+
+      & input:focus + .label-text:after,
+      & input:valid + .label-text:after {
+        transform: translateX(0%);
+      }
+    }
+
+    /* & fieldset {
+      margin-top: 10px;
+      color: var(--input);
+      border: solid var(--fondoContent);
+    } */
+
+    & .buttons {
+      margin-top: 20px;
+
+      & button {
+        background-color: var(--button);
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        color: var(--textInicial);
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+/* ---------------- Card -------------------- */
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.container-card {
+  height: 400px;
+  width: 300px;
+  box-shadow: 0 10px 20px #000;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  font-family: sans-serif;
+  margin-bottom: 20px;
+}
+
+.shape {
+  background-color: var(--input);
+  height: 200px;
+  width: 400px;
+  margin-left: -20px;
+  position: relative;
+  top: -80px;
+  box-shadow: 0 2px 15px #000;
+  transform: rotate(25deg);
+}
+
+.image {
+  height: 100px;
+  width: 100px;
+  background-image: url('img/profile.jpg');
+  position: relative;
+  top: 150px;
+  margin-left: 170px;
+  background-size: cover;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 15px var(--button);
+  transform: rotate(-20deg);
+}
+
+.title {
+  font-size: 15px;
+  padding-bottom: 6px;
+  color: var(--input);
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+
+p {
+  padding-left: 30px;
+  padding-right: 30px;
+  line-height: 2;
+  color: var(--input);
+  font-size: 15px;
+}
+
+.icons {
+  margin-top: 15px;
+}
+
+.icons i {
+  margin-left: 10px;
+  font-size: 20px;
+  transition: .3s;
+  color: var(--button)
+}
+
+.icons i:hover {
+  transform: scale(1.5);
+}
