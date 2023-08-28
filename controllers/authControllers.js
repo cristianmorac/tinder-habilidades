@@ -1,15 +1,14 @@
 const { response } = require("express");
 const bcryptjs = require("bcryptjs");
-const User = require("../models/user");
-const Company = require('../models/company')
 
 const login = async (req, res = response) => {
-  const { email, password } = req.body;
-
+  const { email, password, usuario } = req.body;
+  const User = require(`../models/${usuario}`);
   try {
+    // buscar usuario en base de datos
     const user = await User.findOne({ where: { email: email } });
-    const company = await User.findOne({ where: { email: email } });
-    if (!user) {
+    const validPass = bcryptjs.compareSync(password, user.password);
+    if (!user && !validPass) {
       return res.status(500).json({
         login: false,
         msg: "Credenciales incorrectas",
@@ -17,23 +16,16 @@ const login = async (req, res = response) => {
     }
 
     // SI el usuario está activo
-    if ( !user.estado ) {
-        return res.status(400).json({
-            msg: 'Usuario inactivo'
-        });
-    }
-
-    // Verificar la contraseña
-    const validPass = bcryptjs.compareSync( password, user.password );
-    if ( !validPass ) {
-        return res.status(400).json({
-            msg: '"Credenciales incorrectas"'
-        });
+    if (!user.estado) {
+      return res.status(400).json({
+        msg: "Usuario inactivo",
+      });
     }
 
     res.json({
-        login: true,
+      login: true,
       msg: user.id,
+      usuario,
     });
   } catch (error) {
     console.log(error);

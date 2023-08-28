@@ -17,7 +17,7 @@ body {
 
 .container {
   max-width: 100%;
-  height: 50vh;
+  height: max-content;
   background-color: var(--fondoContent);
   padding: 1rem;
 
@@ -32,7 +32,7 @@ body {
 
   & form {
     margin: 0 auto;
-    max-width: 30%;
+    max-width: 40%;
     padding: 20px;
     background-color: var(--textInicial);
     border-radius: 5px;
@@ -97,11 +97,13 @@ body {
       }
     }
 
-    /* & fieldset {
-      margin-top: 10px;
+    & fieldset {
+      margin-top: 20px;
+      padding: 10px;
       color: var(--input);
-      border: solid var(--fondoContent);
-    } */
+      /* border: solid var(--fondoContent); */
+      border: none;
+    }
 
     & .buttons {
       margin-top: 20px;
@@ -113,6 +115,11 @@ body {
         border-radius: 5px;
         color: var(--textInicial);
         font-size: 0.9rem;
+      }
+
+      & a {
+        text-decoration: none;
+        color: var(--textInicial);
       }
     }
   }
@@ -139,6 +146,7 @@ body {
   overflow: hidden;
   font-family: sans-serif;
   margin-bottom: 20px;
+  border-radius: 2%;
 }
 
 .shape {

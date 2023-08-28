@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <section class="container">
@@ -25,19 +25,19 @@
         <fieldset>
             <legend>Tipo de usuario</legend>
             <label>
-                <input type="radio" name="usuario" value="usuario"> Usuario
+                <input type="radio" name="usuario" value="user"> Usuario
             </label>
             <label>
-                <input type="radio" name="usuario" value="empresa"> Empresa
+                <input type="radio" name="usuario" value="company"> Empresa
             </label>
         </fieldset>   
         <div class="buttons">
           <button type="submit" id="ingresar">Ingresar</button>
-          <button id="registerUser">Registro Usuarios</button>
-          <button id="registerCompany">Registro empresas</button>
+          <button id="registerUser"><a href="./html/registro.html">Registro Usuarios</a></button>
+          <button id="registerCompany"><a href="./html/registroCompany.html">Registro empresas</a></button>
         </div>
       </form>
     </section>
-    <script src="login.js"></script>
+    <script src="./js/login.js"></script>
   </body>
 </html>

@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors"); 
 const sequelize = require("../database/config");
 
+const fileUpload = require('express-fileupload');
+
 class Server {
   constructor() {
     this.app = express();
@@ -14,7 +16,8 @@ class Server {
       userId: "/api/user",
       company: "/api/company",
       companyId: "/api/company",
-      services: "/api/service"
+      services: "/api/service",
+      img: "/api/img",
     };
 
     // conexión DB
@@ -44,6 +47,13 @@ class Server {
 
     // Directorio Público
     this.app.use( express.static('public') );
+
+    // Carga de archivos
+    this.app.use(fileUpload({
+      useTempFiles: true,
+      tempFileDir: './temp',
+      createParentPath: true
+  }))
   }
 
   routes() {
@@ -54,6 +64,7 @@ class Server {
     this.app.use(this.paths.company,require('../routes/companyRoutes'));
     this.app.use(this.paths.companyId,require('../routes/companyRoutes'));
     this.app.use(this.paths.services,require('../routes/serviceRoutes'));
+    this.app.use(this.paths.img,require('../routes/imgRoutes'));
   }
 
   listen() {
