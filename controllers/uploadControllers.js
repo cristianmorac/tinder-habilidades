@@ -8,8 +8,13 @@ const { subirArchivo } = require('../middlewares/subir-archivos');
 
 const cargarArchivo = async (req, res = response) => {
     try {
-        const nombre = await subirArchivo(req.files, undefined, 'imgs')
-        res.json({nombre})
+        const {model, id} = req.params
+        const User = require(`../models/${model}`);
+        const user = await User.findByPk(id)
+        const nombre = await subirArchivo(req.files, undefined, model)
+        user.img = nombre
+        await user.save()
+        res.json(user)
     } catch (error) {
         res.status(400).json({msg})
     }
