@@ -27,6 +27,7 @@ const login = async (req, res = response) => {
       msg: user.id,
       usuario,
     });
+
   } catch (error) {
     console.log(error);
     res.status(500).json({

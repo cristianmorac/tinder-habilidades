@@ -19,10 +19,10 @@ async function postData(formData) {
   let { login, msg, usuario } = await data.json();
   if (login) {
     if (usuario === "user") {
-      location.href = "/public/html/perfil.html";
+      location.href = "/html/perfil.html";
       localStorage.setItem("id", msg);
     } else {
-      location.href = "/public/html/perfilCompany.html";
+      location.href = "/html/perfilCompany.html";
       localStorage.setItem("id", msg);
     }
   }
